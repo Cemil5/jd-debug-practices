@@ -51,9 +51,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(UserDTO dto) {
+    public void save(UserDTO dto) throws TicketingProjectException {
 
         User foundUser = userRepository.findByUserName(dto.getUserName());
+        if(foundUser != null)
+            throw new TicketingProjectException("This username exits");
         dto.setEnabled(true);
 
        User obj =  mapperUtil.convert(dto,new User());
