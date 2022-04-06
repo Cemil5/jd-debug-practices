@@ -8,13 +8,17 @@ public class LoginController {
 	
 	@RequestMapping(value = {"/login","/"})
 	public String login(){
-
 		return "login";
 	}
 	
 	@RequestMapping("/welcome")
 	public String welcome(){
 		return "welcome";
+	}
+
+	@RequestMapping("/logout")
+	public String logout(){
+		return "login";
 	}
 
 }
